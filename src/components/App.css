@@ -1,0 +1,33 @@
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.app-container{
+    display: flex;
+    padding:15px;
+}
+.card{
+   border: 1px solid black; 
+   border-radius: 10px;
+   width: 50%;
+   padding: 15px;
+   margin-bottom: 25px;
+}
+.card-title{
+    font-weight: bold;
+    font-size: 24px;
+}
+.title-container{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+input{
+    margin-bottom: 20px;
+}
