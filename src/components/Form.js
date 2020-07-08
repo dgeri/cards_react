@@ -1,18 +1,18 @@
 import React from 'react';
 import "./App.css";
 
-export default class Form extends React.Component  {
-  render(){
+ let Form =(props)=>  {
     return (
       <div>
-        <form>
-          <label for="fotm-title">Title</label>
-          <input type='text' id='fotm-title'></input>
-          <label for="fotm-text">Text</label>
-          <input type='text'  id='fotm-text'></input>
-          <button type='submit'>Submit</button>
+        <form >
+          <label htmlFor="fotm-title">Title</label>
+          <input type='text' value={props.state.title} onChange={props.addCard} id='fotm-title'></input>
+          <label htmlFor="fotm-text">Text</label>
+          <input type='text' value={props.state.text}   id='fotm-text'></input>
+          <button  type='submit'>Submit</button>
         </form>
       </div>
     )
   }  
-  }
+
+export default Form;

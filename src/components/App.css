@@ -23,6 +23,27 @@ ul{
     display: flex;
     justify-content: space-between;
 }
+.btn-favorite{
+    background: transparent;
+    border: none;
+
+}
+.star{
+    background-image: url('../img/star.png');
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+.yellow{
+    background-image: url('../img/yellow.png');
+    background-size: contain;
+    width: 25px;
+    height: 25px;
+}
+.star:hover{
+    opacity: .7;
+}
+
 form{
     display: flex;
     flex-direction: column;

@@ -1,13 +1,20 @@
 import React from 'react';
-import Cards from './Cards';
 
-export default class Favorites extends React.Component {
-  render(){
-    return (
-      <div>
-        <Cards/>
+let Favorites=(props)=>{
+  
+     return (
+      <div >
+        <ul>
+        {props.favorites.map(i=>
+          <li key={props.favorites[i]}>{i}</li>
+          )}
+        </ul>
       </div>
-    )
-  }  
-  }
+     )
+}
+     
+export default Favorites;
+
+
+ 
   
