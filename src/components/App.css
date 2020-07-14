@@ -6,11 +6,17 @@ ul{
 .app-container{
     display: flex;
     padding:15px;
+    justify-content: space-around;
 }
+.cards-wrapper{
+    width: 40%;
+}
+.favorites-wrapper{
+    width: 40%;}
 .card{
    border: 1px solid black; 
    border-radius: 10px;
-   width: 50%;
+   width: 100%;
    padding: 15px;
    margin-bottom: 25px;
 }
@@ -47,7 +53,7 @@ ul{
 form{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
 }
 input{
     margin-bottom: 20px;
