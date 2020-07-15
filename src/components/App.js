@@ -3,14 +3,34 @@ import './App.css';
 import Cards from './Cards';
 import Favorites from './Favorites';
 import Form from './Form'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import axios from "axios";
 
 export default class App extends React.Component {
     state={
       items: [],
       favorites: [],
+      title: '',
+      body:''
     }
+    handleChange=(e)=>{
+      this.setState={
+        [e.target.name]:e.target.value
+      }
+   }
+   handleSubmit=(e)=>{
+    e.preventDefault();
+    // const title = this.state.title;
+    // const body = this.state.body;
+    const data = new FormData();
+    data.append('title','title');
+
+    axios.post(`https://jsonplaceholder.typicode.com/posts`, data).then(res=>
+     console.log(res),
+     console.log(data)
+     )
+
+  }
     addToFavorite=(e,favorite)=>{
       e.target.classList.add('yellow');
       const { favorites } = this.state;
@@ -55,12 +75,8 @@ export default class App extends React.Component {
           <div className='favorites-wrapper'>
             <h1>Favorites</h1>
             <Favorites favorites={this.state.favorites}/>
-            <Switch> 
-            <Route path="/favorites" render={() => 
-              <Favorites favorites={this.state.favorites} />}
-            />
-            </Switch>
-            <Form state={this.state}/>
+            <h1>Add new</h1>
+            <Form state={this.state} handleChange={this.handleChange.bind(this)} handleSubmit={this.handleSubmit}/>
           </div>
       </div>
     </Router>
