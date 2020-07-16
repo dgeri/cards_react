@@ -10,26 +10,19 @@ export default class App extends React.Component {
     state={
       items: [],
       favorites: [],
-      title: '',
-      body:''
     }
-    handleChange=(e)=>{
-      this.setState={
-        [e.target.name]:e.target.value
-      }
-   }
    handleSubmit=(e)=>{
     e.preventDefault();
-    // const title = this.state.title;
-    // const body = this.state.body;
-    const data = new FormData();
-    data.append('title','title');
-
-    axios.post(`https://jsonplaceholder.typicode.com/posts`, data).then(res=>
-     console.log(res),
-     console.log(data)
-     )
-
+    const cards = {}
+    e.target.childNodes.forEach(function(el){
+      if(el.tagName ==='INPUT')
+      cards[el.name] = el.value
+    })
+    const newCards = this.state.items.slice()
+    newCards.push(cards)
+    this.setState({
+      items:newCards
+    })
   }
     addToFavorite=(e,favorite)=>{
       e.target.classList.add('yellow');
@@ -76,7 +69,7 @@ export default class App extends React.Component {
             <h1>Favorites</h1>
             <Favorites favorites={this.state.favorites}/>
             <h1>Add new</h1>
-            <Form state={this.state} handleChange={this.handleChange.bind(this)} handleSubmit={this.handleSubmit}/>
+            <Form state={this.state} handleSubmit={this.handleSubmit}/>
           </div>
       </div>
     </Router>
